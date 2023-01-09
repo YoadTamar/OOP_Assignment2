@@ -86,15 +86,20 @@ public class Ex2_1 {
     }
 
 
-    public static int getNumOfLinesThreads(String[] fileNames) {
-
+    public static int getNumOfLinesThreads(String[] fileNames) throws RuntimeException {
         int count = 0;
         for(int i = 0; i< fileNames.length; i++)
         {
             ThreadFile threadFile = new ThreadFile(fileNames[i]);
             try{
                 threadFile.start();
-                threadFile.join();
+                try{
+                    threadFile.join();
+                }
+                catch (InterruptedException e){
+                    throw new RuntimeException();
+                }
+
                 count += threadFile.getLines();
                 //System.out.println("count in file " + (i+1) +": " +count);
             }
@@ -150,5 +155,4 @@ public class Ex2_1 {
         System.out.println("Elapsed Time of three in milli seconds: "+ (end2-start2));
 
     }
-
 }
