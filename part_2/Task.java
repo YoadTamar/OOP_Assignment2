@@ -6,19 +6,22 @@ public class Task<T> implements Callable<T> , Comparable<Task<T>> {
     TaskType taskType;
     Callable <T> task;
 
+    //constructors
     private Task(Callable task) {
         this.task = task;
         this.taskType.setPriority(3);
     }
 
-    //Create task for first (1) Constructor
-    public static Task createTask(Callable callable, TaskType taskType){
-        Task t = new Task(callable);
-        t.setTaskType(taskType);
-        return t;
+    private Task(Callable task , TaskType taskType) {
+        this.task = task;
+        this.taskType = taskType;
     }
 
     //Create task
+    public static Task createTask(Callable callable, TaskType taskType){
+        return new Task(callable , taskType);
+    }
+
     public static Task createTask(Callable callable) {
         return new Task(callable);
     }
