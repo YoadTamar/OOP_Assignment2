@@ -25,7 +25,7 @@ public class Ex2_1 {
                             + file.getName());
                 }
                 else {
-                    System.out.println("File already exists.");
+                    //System.out.println("File already exists.");
                 }
             } catch (IOException e) {
                 System.out.println("An error has occurred.");
@@ -48,7 +48,7 @@ public class Ex2_1 {
                     Writer.append("Files in Java are seriously good!!\n");
                 }
                 Writer.close();
-                System.out.println("Successfully written.");
+                //System.out.println("Successfully written.");
             }
             catch (IOException e) {
                 System.out.println("An error has occurred.");
@@ -62,7 +62,6 @@ public class Ex2_1 {
 
     public static int getNumOfLines(String[] fileNames)
     {
-        System.out.println("inside \"getNumOfLines\"");
         int count = 0;
         for(int i = 0; i<fileNames.length;i++)
         {
@@ -136,7 +135,7 @@ public class Ex2_1 {
     }
 
     public static void main(String[] args) {
-        String[] names = createTextFiles(10000 , 1 , 1000);
+        String[] names = createTextFiles(60 , 7 , 3);
         long start1 = System.currentTimeMillis();
         int lines = getNumOfLines(names);
         long end1 = System.currentTimeMillis();
@@ -152,7 +151,7 @@ public class Ex2_1 {
 
         System.out.println("Elapsed Time of one in milli seconds: "+ (end1-start1));
         System.out.println("Elapsed Time of two in milli seconds: "+ (end2-start2));
-        System.out.println("Elapsed Time of three in milli seconds: "+ (end2-start2));
+        System.out.println("Elapsed Time of three in milli seconds: "+ (end3-start3));
 
     }
 }
