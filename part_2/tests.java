@@ -1,125 +1,54 @@
 package com.company;
 
-import java.util.Collection;
-import java.util.List;
+import org.junit.jupiter.api.Test;
+import org.junit.platform.commons.logging.Logger;
+import org.junit.platform.commons.logging.LoggerFactory;
 import java.util.concurrent.*;
 
-public class CustomExecutor implements ExecutorService {
-
-    int cores = Runtime.getRuntime().availableProcessors() ;
-    ThreadPoolExecutor threadPool = new ThreadPoolExecutor
-            (cores/2 , cores-1,
-            300, TimeUnit.MILLISECONDS,
-             new PriorityBlockingQueue<Runnable>());
-    int[] maxP = new int[4];
-
-    @Override
-    public void execute(Runnable command) {
-        Task t = (Task) command;
-        maxP[t.taskType.getPriorityValue()]++;
-        threadPool.execute((Runnable) t);
-    }
-
-    @Override
-    public void shutdown() {
-        threadPool.shutdown();
-    }
-
-    @Override
-    public List<Runnable> shutdownNow() {
-        return threadPool.shutdownNow();
-    }
-
-    @Override
-    public boolean isShutdown() {
-        return threadPool.isShutdown();
-    }
-
-    @Override
-    public boolean isTerminated() {
-        return threadPool.isTerminated();
-    }
-
-    @Override
-    public boolean awaitTermination(long timeout, TimeUnit unit) throws InterruptedException {
-        return threadPool.awaitTermination(timeout , unit);
-    }
-
-    @Override
-    public <T> Future<T> submit(Callable<T> task) {
-        Task t = (Task) task;
-        maxP[((Task<T>) task).taskType.getPriorityValue()]++;
-        return threadPool.submit(task);
-    }
-
-    public <T> Future<T> submit(Callable task , TaskType taskType) {
-        Task t = Task.createTask(task);
-        t.setTaskType(taskType);
-        maxP[((Task) task).taskType.getPriorityValue()]++;
-        return threadPool.submit(task);
-    }
-
-    public <T> Future<T> submit(Callable task, T result) {
-        Task t = Task.createTask(task);
-        maxP[((Task) task).taskType.getPriorityValue()]++;
-        return threadPool.submit((Runnable)task , result);
-    }
-
-    @Override
-    public <T> Future<T> submit(Runnable task, T result) {
-        Task t = Task.createTask((Callable) task);
-        maxP[((Task<T>) task).taskType.getPriorityValue()]++;
-        return threadPool.submit(task , result);
-    }
-
-    @Override
-    public Future<?> submit(Runnable task) {
-        Task t = Task.createTask((Callable) task);
-        maxP[((Task) task).taskType.getPriorityValue()]++;
-        return threadPool.submit(task);
-    }
-
-    @Override
-    public <T> List<Future<T>> invokeAll(Collection<? extends Callable<T>> tasks) throws InterruptedException {
-        return threadPool.invokeAll(tasks);
-    }
-
-    @Override
-    public <T> List<Future<T>> invokeAll(Collection<? extends Callable<T>> tasks, long timeout, TimeUnit unit) throws InterruptedException {
-        return threadPool.invokeAll(tasks , timeout , unit);
-    }
-
-    @Override
-    public <T> T invokeAny(Collection<? extends Callable<T>> tasks) throws InterruptedException, ExecutionException {
-        return threadPool.invokeAny(tasks);
-    }
-
-    @Override
-    public <T> T invokeAny(Collection<? extends Callable<T>> tasks, long timeout, TimeUnit unit) throws InterruptedException, ExecutionException, TimeoutException {
-        return threadPool.invokeAny(tasks , timeout , unit);
-    }
-
-    //@Override
-    public void close() {
-        //this.threadPool.close();
-    }
-
-
-//    @Override
-//    private  void AfterExe(Runnable exe){
-//        Task t = (Task) exe;
-//        maxP[t.getTaskType().getPriorityValue()]--;
-//    }
-
-    public int getCurrentMax() {
-        int max = -1;
-        for (int i = 1; i < maxP.length; i++) {
-            if(maxP[i] > max) max = maxP[i];
+public class Tests {
+    public static final Logger logger = LoggerFactory.getLogger(Tests.class);
+    @Test
+    public void partialTest(){
+        CustomExecutor customExecutor = new CustomExecutor();
+        Task task = Task.createTask(()->{
+            int sum = 0;
+            for (int i = 1; i <= 10; i++) {
+                sum += i;
+            }
+            return sum;
+        }, TaskType.COMPUTATIONAL);
+        Future<Integer> sumTask = customExecutor.submit(task);
+        final int sum;
+        try {
+            sum = sumTask.get(1, TimeUnit.MILLISECONDS);
+        } catch (InterruptedException | ExecutionException | TimeoutException e) {
+            throw new RuntimeException(e);
         }
-        return max;
-    }
-
-    public void gracefullyTerminate() {
-        threadPool.isShutdown();
+        logger.info(()-> "Sum of 1 through 10 = " + sum);
+        Callable<Double> callable1 = ()-> {
+            return 1000 * Math.pow(1.02, 5);
+        };
+        Callable<String> callable2 = ()-> {
+            StringBuilder sb = new StringBuilder("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+            return sb.reverse().toString();
+        };
+        // var is used to infer the declared type automatically
+        Future<Double> priceTask = customExecutor.submit(()-> {
+            return 1000 * Math.pow(1.02, 5);
+        }, TaskType.COMPUTATIONAL);
+        Future<String> reverseTask = customExecutor.submit(callable2, TaskType.IO);
+        final Double totalPrice;
+        final String reversed;
+        try {
+            totalPrice = priceTask.get();
+            reversed = reverseTask.get();
+        } catch (InterruptedException | ExecutionException e) {
+            throw new RuntimeException(e);
+        }
+        logger.info(()-> "Reversed String = " + reversed);
+        logger.info(()->String.valueOf("Total Price = " + totalPrice));
+        logger.info(()-> "Current maximum priority = " +
+                customExecutor.getCurrentMax());
+        customExecutor.gracefullyTerminate();
     }
 }
