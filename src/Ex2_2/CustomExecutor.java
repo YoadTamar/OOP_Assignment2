@@ -44,7 +44,8 @@ public class CustomExecutor extends ThreadPoolExecutor {
      * @return a Future representing pending completion of the task.
      */
     public <T> Future<T> submit(Callable<T> task , TaskType taskType) {
-        return submit(Task.createTask(task , taskType));
+        if(task != null) return submit(Task.createTask(task , taskType));
+        throw new IllegalArgumentException();
     }
 
     /**
@@ -56,7 +57,8 @@ public class CustomExecutor extends ThreadPoolExecutor {
     @Override
     public <T> Future<T> submit(Callable<T> task)
     {
-        return submit(Task.createTask(task));
+        if(task != null) return submit(Task.createTask(task));
+        throw new IllegalArgumentException();
     }
 
     /**
@@ -80,7 +82,7 @@ public class CustomExecutor extends ThreadPoolExecutor {
         for (int i = 3; i >= 1; i--) {
             if(max[i] > 0)
             {
-                max_p = max[i];
+                max_p = i;
                 ok = true;
             }
         }
