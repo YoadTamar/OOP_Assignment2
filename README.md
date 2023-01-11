@@ -127,6 +127,65 @@ Task<T> has 2 private variables:
  - `Task createTask(Callable callable, TaskType taskType)`
  - `Task createTask(Callable callable)`
  
+ ### Task(Callable<T> task)
+
+  A private constructor, receive Callable<T> task
+
+ ### Task(Callable<T> task , TaskType taskType)
+
+  A private constructor;
+  receive Callable<T> task , 
+  enum TaskType, represent priority.
+
+ ### Task createTask(Callable callable, TaskType taskType)
+
+  This method create a new Task and return a new Task.
+
+
+ ### Task createTask(Callable callable)
+
+  This method create a new Task and return a new Task.
+
+ ### getTaskType()
+
+  Return the current TaskType.
+  
+ ### getTask()
+
+  Return the Callable task.
+
+ ### setTaskType(TaskType taskType)
+
+  This method set the TaskType.
+
+ ### setTask(Callable<T> task)
+
+  This method set the task.
+
+ ### call()
+
+  This method Computes a result, or throws an exception if unable to do so.
+  This method return computed result, and throws Exception – if unable to compute a result.
+
+ ### compareTo(Task<T> otherTask)
+
+  This function return 1 / -1 / 0 depends on if this taskType is larger smaller or even
+  to the object to be compared.
+
+ ### equals(Object o)
+
+  This method check if 2 object are contain the same task and taskType.
+  The method return true if they are equals, else false.
+
+ ### hashCode()
+
+  Generates a hash code for the object.
+  The method return a hash value.
+
+ ### toString()
+
+  Returns a string representation of the object.
+ 
  
  
  
