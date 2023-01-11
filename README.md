@@ -1,4 +1,6 @@
 # OOP_EX2
+Third assignment in "Object-Oriented Programming" course at Ariel University.
+
 In this assigment we were asked to make some text files and calculate all of their lines and measure time using three methods: <br>
  1. Regular, without any threads. <br>
  2. Using Threads. <br>
