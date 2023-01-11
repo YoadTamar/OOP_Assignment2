@@ -66,7 +66,13 @@ we were used 3 diffrent ways, to calculte the amount of lines in 10,000 files.
   It's worth noting that, real-world performance will vary based on several factors such as the type of file system and access method used, disk I/O operation and so 
   on. Therefore, this calculation is only considered as a rough estimate of time complexity of this method.
 
-- second way: 
+- Method 2: Multi-threaded Calculation
+
+  In this method, we utilized multi-threading to calculate the number of lines in each of the 10,000 files. For each file, we created a separate thread, with each 
+  thread being responsible for counting the number of lines in one file. This method is more effective than the linear way, as all the threads are able to work in an 
+  almost parallel manner. This approach allows for concurrent execution of multiple threads, reducing the overall processing time. However, the actual performance 
+  improvement will depend on the system resources, such as the number of CPU cores, and the operating system's ability to schedule threads efficiently.
+  
 
 
 ![createfile](https://user-images.githubusercontent.com/119599940/211847818-ec276700-85c2-48ee-9726-3e862e62b59e.png)
