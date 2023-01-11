@@ -26,7 +26,7 @@ public class CustomExecutor extends ThreadPoolExecutor {
      * @return a Future representing pending completion of the task.
      * @throws IllegalArgumentException
      */
-    public <T> Future<T> submit(Task<T> task) throws IllegalArgumentException {
+    public <T> Future<T> submit(Task<T> task){
         if (task != null) {
             max[task.getTaskType().getPriorityValue()]++;
             AdapterCall adapterCall = new AdapterCall<>(task, task.getTaskType().getPriorityValue());
