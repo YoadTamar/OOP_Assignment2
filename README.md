@@ -237,7 +237,85 @@ Class methods: <br>
 - `TaskType getType()`
 - `boolean validatePriority(int priority)`
 
+***
 
+## CustomExecutor
+ 
+this class is extends from `ThreadPoolExecutor`.
+
+CustomExecutor has 2 private variables:
+- `int[] max`
+- `final int maxp`
+ 
+ in addition, `CustomExecutor` has the following methods:<br>
+ - `CustomExecutor()`
+ - `submit(Task<T> task)`
+ - `submit(Callable<T> task , TaskType taskType)`
+ - `submit(Callable<T> task)`
+ - `beforeExecute(Thread t, Runnable r)`
+ - `getCurrentMax()`
+ - `gracefullyTerminate()`
+ - `setCorePoolSize(int corePoolSize)`
+ - `getCorePoolSize()`
+ - `setMaximumPoolSize(int maximumPoolSize)`
+ - `getMaximumPoolSize()`
+ - `hashCode()`
+ - `toString()`
+
+ #### CustomExecutor()
+
+  A constructor.
+
+ #### submit(Task<T> task)
+
+Submits a value-returning Task for execution and returns a Future representing the pending results of the task.
+The return a Future representing pending completion of the task.
+
+#### submit(Callable<T> task , TaskType taskType)
+
+  Submits a value-returning task for execution and returns a Future representing the pending results of the task.
+  The method return a Future representing pending completion of the task.
+
+
+#### submit(Callable<T> task)
+
+ Submits a value-returning task for execution and returns a Future representing the pending results of the task.
+ the method return a Future representing pending completion of the task.
+
+#### beforeExecute(Thread t, Runnable r)
+
+This method activate before a task execute.
+
+#### getCurrentMax()
+
+Return the max priority in queue/
+
+#### gracefullyTerminate()
+
+ Initiates an orderly shutdown in which previously submitted tasks are executed, but no new tasks will be accepted.
+ Invocation has no additional effect if already shut down.
+
+#### setCorePoolSize(int corePoolSize)
+
+ Sets the core number of threads.
+
+#### getCorePoolSize()
+
+Returns the core number of threads
+
+#### setMaximumPoolSize(int maximumPoolSize)
+
+ Sets the maximum allowed number of threads.
+
+#### `int getMaximumPoolSize()`
+this method returns the maximum allowed number of threads.
+
+#### `int hashCode()`
+This method returns a hash code value for the object.
+
+
+#### `String toString()`
+This method returns a string identifying this pool.
  
  
  
