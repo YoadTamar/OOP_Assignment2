@@ -86,6 +86,7 @@ we were used 3 diffrent ways, to calculte the amount of lines in 10,000 files.
   - Method 2 utilizes multi-threading to achieve almost parallel execution.
   - Method 3 utilizes a thread pool and improves over linear method but may not perform as well as method 2.
 
-as we can see in the example image:
+as we can see in the example image:<br>
+
 ![createfile](https://user-images.githubusercontent.com/119599940/211847818-ec276700-85c2-48ee-9726-3e862e62b59e.png)
 
