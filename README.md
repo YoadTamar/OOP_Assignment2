@@ -119,9 +119,9 @@ Task<T> has 2 private variables:
  - `setTask(Callable<T> task)`
  - `call()`
  - `compareTo(Task<T> otherTask)`
- -`equals(Object o)'
- -`hashCode()`
- -`toString()`
+ - `equals(Object o)'
+ - `hashCode()`
+ - `toString()`
  
  furthermore, `Task<T>` has the following static methods:<br>
  - `Task createTask(Callable callable, TaskType taskType)`
