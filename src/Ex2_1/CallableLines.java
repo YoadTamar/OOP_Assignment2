@@ -8,12 +8,21 @@ import java.util.concurrent.Callable;
 public class CallableLines implements Callable<Integer> {
     private String file;
 
+    /**
+     * Constructor that receive the name of a file
+     * @param file -String - the name of the file
+     */
     public CallableLines(String file)
     {
         this.file = file;
     }
 
 
+    /**
+     * This method calculate the numbers of the line in the file, and return it.
+     * @return int - numbers of line
+     * @throws Exception - FileNotFoundException
+     */
     @Override
     public Integer call() throws Exception {
         int count = 0;
