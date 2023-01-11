@@ -11,6 +11,15 @@ import java.util.Scanner;
 import java.util.concurrent.*;
 
 public class Ex2_1 {
+    /**
+     * This function create a new files , The number of lines in each file is a random number.
+     * The name of the files are: file_1, file_2,…, file_n.
+     * All the file contains at least 10 characters.
+     * @param n - int
+     * @param seed - int
+     * @param bound - int
+     * @return String Array - contains all the file names.
+     */
     public static String[] createTextFiles(int n, int seed, int bound)
     {
         String[] names = new String[n];
@@ -22,8 +31,7 @@ public class Ex2_1 {
                 File file = new File(names[i]);
                 if (file.createNewFile())
                 {
-                    System.out.println("File created: "
-                            + file.getName());
+                    //System.out.println("File created: " + file.getName());
                 }
                 else {
                     //System.out.println("File already exists.");
@@ -61,6 +69,11 @@ public class Ex2_1 {
     }
 
 
+    /**
+     * This function calculate the all the lines of the files that received.
+     * @param fileNames - String array.
+     * @return the numbers of lines in all the files.
+     */
     public static int getNumOfLines(String[] fileNames)
     {
         int count = 0;
@@ -86,6 +99,13 @@ public class Ex2_1 {
     }
 
 
+    /**
+     * This function calculate the all the lines of the files that received.
+     * This function use threads for the calculation.
+     * @param fileNames - String array.
+     * @return the numbers of lines in all the files.
+     * @throws RuntimeException
+     */
     public int getNumOfLinesThreads(String[] fileNames) throws RuntimeException {
         int count = 0;
         for(int i = 0; i< fileNames.length; i++)
@@ -112,6 +132,12 @@ public class Ex2_1 {
         return count;
     }
 
+    /**
+     * This function calculate the all the lines of the files that received.
+     * This function use TheardPool for the calculation.
+     * @param fileNames - String array.
+     * @return the numbers of lines in all the files.
+     */
     public int getNumOfLinesThreadPool(String[] fileNames)
     {
         int lines = 0;
@@ -134,6 +160,6 @@ public class Ex2_1 {
         threadPool.shutdown();
         return lines;
     }
-
+    
 }
 
