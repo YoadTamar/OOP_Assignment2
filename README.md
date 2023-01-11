@@ -7,7 +7,7 @@ In this part of assigment we were asked to make some text files and calculate al
  2. Using Threads. <br>
  3. Using TheardPool. <br>
  
- ### ThreadFile
+ ## ThreadFile
  Extends the `Thread` class. A thread in Java is the direction or path that is taken while a program is being executed. 
  
  myThread has 2 private variables:
@@ -32,7 +32,7 @@ In this part of assigment we were asked to make some text files and calculate al
  and initializing the variable `lines` to the method result.
  
  ***
- ### CallLines
+ ## CallLines
  Implements the Callable interface. A task that returns a result and may throw an exception. Implementors define a single method with no arguments called call.<br>
  
   CallLines has 2 private variables:
