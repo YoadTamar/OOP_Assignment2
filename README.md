@@ -58,7 +58,7 @@ In this part of assigment we were asked to make some text files and calculate al
 
 ### time calculation
 we were used 3 diffrent ways, to calculte the amount of lines in 10,000 files.
--Method 1: Linear Time Calculation<br>
+- Method 1: Linear Time Calculation<br>
 
   In this method, we employed a straightforward approach to calculate the number of lines in each of the 10,000 files. The process involves iterating through each file   and counting the number of lines in each file individually. The line count for each file is then recorded and stored. This method has a linear time complexity of   
   O(n), where n represents the number of files. While it is easy to implement, it is not the most efficient method as it does not account for the possibility of  p
