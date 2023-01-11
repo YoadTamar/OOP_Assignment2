@@ -90,3 +90,7 @@ as we can see in the example image:<br>
 
 ![createfile](https://user-images.githubusercontent.com/119599940/211847818-ec276700-85c2-48ee-9726-3e862e62b59e.png)
 
+## The second part – Ex2_2:
+In this part of the assigment we had to create a new task type that can be used in a ThreadPool,
+where tasks have a priority level and are executed accordingly by the ThreadPool. This would allow for prioritized task execution,
+where tasks with higher priority are executed first.   
