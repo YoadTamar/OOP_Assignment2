@@ -26,7 +26,7 @@ public class Ex2_1 {
         for (int i = 0; i < n; i++)
         {
             int number = i+1;
-            names[i] = "file_" + number ;
+            names[i] = "file_" + number +".txt";
             try {
                 File file = new File(names[i]);
                 if (file.createNewFile())
