@@ -103,3 +103,34 @@ where tasks with higher priority are executed first. <br>
     the section 1 to a priority queue, and a method for submitting a generic task created by a
     Callable<V> and a Type, passed as arguments. 
 
+## Task<T>
+ 
+this class is implements `Callable<T>` , `Comparable<Task<T>>`.
+Task<T> has 2 private variables:
+-  `TaskType taskType`
+- `Callable <T> task`
+ 
+ in addition, `Task<T>` has the following methods:<br>
+ - `Task(Callable<T> task)`
+ - `Task(Callable<T> task , TaskType taskType)`
+ - `getTaskType()`
+ - `getTask()`
+ - `setTaskType(TaskType taskType)`
+ - `setTask(Callable<T> task)`
+ - `call()`
+ - `compareTo(Task<T> otherTask)`
+ -`equals(Object o)'
+ -`hashCode()`
+ -`toString()`
+ 
+ furthermore, `Task<T>` has the following static methods:<br>
+ - `Task createTask(Callable callable, TaskType taskType)`
+ - `Task createTask(Callable callable)`
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
