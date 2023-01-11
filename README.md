@@ -1,5 +1,13 @@
 # OOP_EX2
 Third assignment in "Object-Oriented Programming" course at Ariel University.
+
+## Description
+This assignment focuses on the use of threads and thread pools.<br>
+The assignment is divided into two parts:
+- Part 1: Threads with Files. In this part of the assignment,we were required to utilize threads to process files.
+- Part 2: Asynchronous Tasks with Priority. In this part of the assignment, we were required to create a new object that represents an asynchronous task,
+  with priority levels. In addition, we were needed to create a Threadpool that can handle tasks of this type, and execute them in accordance with their assigned   
+  priority levels.
  
 # First part: Ex2_1
 In this part of assigment we were asked to make some text files and calculate all of their lines and measure time using three methods: <br>
