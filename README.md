@@ -186,7 +186,58 @@ Task<T> has 2 private variables:
 
   Returns a string representation of the object.
  
+  ***
  
+ ## AdapterCall
+ This class extends the `FutureTask<T>` class and impliments the `Comparable<AdapterCall<T>>` interface. <br>
+ The class goal is to make a bridge between `Runnable` to `Callable`. <br>
+ 
+ AdapterCall has a private variable:
+ - `int p` that will hold the task's priorety.<br>
+
+In addition, `AdapterCall` has the following methods:<br>
+- `AdapterCall(Callable<T> callable , int p)`
+- `int getP()`
+- `void setP(int p)`
+- `int compareTo(AdapterCall<T> other)`
+- `boolean equals(Object other)`
+- `int hashCode()`
+- `String toString()`
+
+#### `AdapterCall(Callable<T> callable , int p)`
+The constactor, a public method that assignes the `callable` and the `p` variables.<br>
+
+#### `int getP()`
+This method returns `p`, who stands for the task priority.
+
+#### `void SetP(int p)`
+This method initializing the variable `p`. 
+
+#### `int compareTo(AdapterCall<T> other)`
+This method compering between two variables from type-class `AdapterCall<T>`. <br>
+The method calls to `Integer.compare(this.p , other.p)` that returns 1 / -1 / 0 , depends if `this.p` is greater, smaller, or even to `other.p`.
+
+#### `boolean equals(Object other)`
+This method indicates whether some other object is "equal to" this one.
+
+#### `int hashCode()`
+This method generates a hash code for the object.
+
+#### `String toString()`
+This method returns a string representation of the object.
+
+***
+
+## TaskType
+An attached file we recieved from the assigment. <br>
+Represents the task priority (int value), ranging 1 to 3, when 1 is most improtant. <br>
+Class methods: <br>
+- `setPriority(int priority)`
+- `int getPriorityValue()`
+- `TaskType getType()`
+- `boolean validatePriority(int priority)`
+
+
  
  
  
