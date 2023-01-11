@@ -119,7 +119,7 @@ Task<T> has 2 private variables:
  - `setTask(Callable<T> task)`
  - `call()`
  - `compareTo(Task<T> otherTask)`
- - `equals(Object o)'
+ - `equals(Object o)`
  - `hashCode()`
  - `toString()`
  
