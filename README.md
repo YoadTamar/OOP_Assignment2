@@ -56,7 +56,12 @@ In this part of assigment we were asked to make some text files and calculate al
  ### uml
  ![ex1_uml](https://user-images.githubusercontent.com/119599940/211843277-5caa8825-379a-4fca-8143-b4904ad55760.png)
 
-## time!!
+### time calculation
+we were used 3 diffrent ways, to calculte the amount of lines in 10,000 files.
+- first way:
+  we use a linear way, for each file we calclate his lines, and save it. <br>
+  this is a "bad" method, because it is in linear time, and we could have done it better.
+
 
 ![createfile](https://user-images.githubusercontent.com/119599940/211847818-ec276700-85c2-48ee-9726-3e862e62b59e.png)
 
