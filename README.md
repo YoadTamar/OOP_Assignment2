@@ -68,14 +68,14 @@ we were used 3 diffrent ways, to calculte the amount of lines in 10,000 files.
 
 - Method 2: Multi-threaded Calculation
 
-  In this method, we utilized multi-threading to calculate the number of lines in each of the 10,000 files. For each file, we created a separate thread, with each 
+  - In this method, we utilized multi-threading to calculate the number of lines in each of the 10,000 files. For each file, we created a separate thread, with each 
   thread being responsible for counting the number of lines in one file. This method is more effective than the linear way, as all the threads are able to work in an 
   almost parallel manner. This approach allows for concurrent execution of multiple threads, reducing the overall processing time. However, the actual performance 
   improvement will depend on the system resources, such as the number of CPU cores, and the operating system's ability to schedule threads efficiently.
   
-  - Method 3: Thread Pool Calculation
+- Method 3: Thread Pool Calculation
 
-  In this method, we utilized a thread pool to calculate the number of lines in each of the 10,000 files. We created a thread pool with a fixed size equal to the 
+  - In this method, we utilized a thread pool to calculate the number of lines in each of the 10,000 files. We created a thread pool with a fixed size equal to the 
   number of files, where each thread counted the lines of one file. This method improved performance over the linear method by utilizing a fixed number of threads and 
   efficiently using system resources. However, actual performance may not be as good as the multi-threaded method, depending on the resources of the system. 
 
