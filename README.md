@@ -317,7 +317,8 @@ This method returns a hash code value for the object.
 #### `String toString()`
 This method returns a string identifying this pool.
  
- 
+ ### uml
+ ![ex1_uml](https://user-images.githubusercontent.com/119599940/211843277-5caa8825-379a-4fca-8143-b4904ad55760.png)
  
  
  
