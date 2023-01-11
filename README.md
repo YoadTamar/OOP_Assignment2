@@ -52,3 +52,7 @@ In this part of assigment we were asked to make some text files and calculate al
  #### `call()`
  calculating the number of lines with the exact file name given in the constractor <br>
  and returns number of lines of the file.
+ 
+ ### uml
+ ![ex1_uml](https://user-images.githubusercontent.com/119599940/211843277-5caa8825-379a-4fca-8143-b4904ad55760.png)
+
