@@ -91,6 +91,15 @@ as we can see in the example image:<br>
 ![createfile](https://user-images.githubusercontent.com/119599940/211847818-ec276700-85c2-48ee-9726-3e862e62b59e.png)
 
 ## The second part – Ex2_2:
-In this part of the assigment we had to create a new task type that can be used in a ThreadPool,
-where tasks have a priority level and are executed accordingly by the ThreadPool. This would allow for prioritized task execution,
-where tasks with higher priority are executed first.   
+In this part of the assigment we had to create a new task type that can be used in a ThreadPool,<br>
+where tasks have a priority level and are executed accordingly by the ThreadPool. This would allow for prioritized task execution,<br>
+where tasks with higher priority are executed first. <br>
+
+- Our goal is to create two new types that extend the functionality of Java's Concurrency Framework
+ 1. A generic task with a Type that returns a result and may throw an exception.
+    Each task has a priority used for scheduling inferred from the integer value of the task's Type.
+
+ 2. A custom thread pool class that defines a method for submitting a generic task as described in
+    the section 1 to a priority queue, and a method for submitting a generic task created by a
+    Callable<V> and a Type, passed as arguments. 
+
