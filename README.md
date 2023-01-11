@@ -12,45 +12,38 @@ In this assigment we were asked to make some text files and calculate all of the
  Extends the `Thread` class. A thread in Java is the direction or path that is taken while a program is being executed. 
  
  myThread has 2 private variables:
- - `String fileName`
+ - `String file`
  - `int lines`
  
  in addition, `ThreadFile` has the following methods:<br>
  - `ThreadFile`
- - `calcLines() `
  - `getLines()`
  - `run()`
  
  
- #### `ThreadFile(String fileName)`
- Assigns the name of the file, and creates thread with that name .
- 
- #### `calcLines()`
- A private method for calculating the number of lines with the exact file name given in the constractor <br>
- and initializing the variable `lines` to the method result.
+ #### `ThreadFile(String file)`
+ Assigns the name of the file, and creates thread with that name.
  
  #### `getLines()`
  Returns the variable `lines`.
  
  #### `run()`
  Executing the thread.<br>
- In our case, run() will call the help-function - `calcLines`
+ Run calculating the number of lines with the exact file name given in the constractor <br>
+ and initializing the variable `lines` to the method result.
  
  ***
- ## ThreadFilePool
+ ## CallLines
  Implements the Callable interface. A task that returns a result and may throw an exception. Implementors define a single method with no arguments called call.<br>
- This class cause is to create threadpool.
  
-  ThreadFilePool has 2 private variables:
- - `String fileName`
- - `int lines`
+  CallLines has 2 private variables:
+ - `String file`
  
- in addition, `ThreadFilePool` has the following methods:<br>
- - `ThreadFilePool`
- - `calcLines() `
+ in addition, `CallLines` has the following methods:<br>
+ - `CallLines`
  - `call()`
 
- #### `ThreadFilePool(String fileName)`
+ #### `CallLines(String file)`
  Assigns the name of the file, and creates thread with that name .
  
  #### `calcLines()`
@@ -58,4 +51,5 @@ In this assigment we were asked to make some text files and calculate all of the
  and initializing the variable `lines` to the method result.
  
  #### `call()`
- Calls the help-function `calcLines` and returns number of lines of the file.
+ calculating the number of lines with the exact file name given in the constractor <br>
+ and returns number of lines of the file.
