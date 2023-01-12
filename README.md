@@ -1,6 +1,11 @@
 # OOP_EX2
 Third assignment in "Object-Oriented Programming" course at Ariel University.
 
+## Authors
+
+- [@Yoad Tamar](https://github.com/YoadTamar)
+- [@Ron Shuster](https://github.com/shusteron)
+
 ## Description
 This assignment focuses on the use of threads and thread pools.<br>
 The assignment is divided into two parts:
@@ -98,7 +103,7 @@ as we can see in the example image:<br>
 
 ![createfile](https://user-images.githubusercontent.com/119599940/211847818-ec276700-85c2-48ee-9726-3e862e62b59e.png)
 
-## The second part – Ex2_2:
+# Second part: Ex2_2
 In this part of the assigment we had to create a new task type that can be used in a ThreadPool,<br>
 where tasks have a priority level and are executed accordingly by the ThreadPool. This would allow for prioritized task execution,<br>
 where tasks with higher priority are executed first. <br>
