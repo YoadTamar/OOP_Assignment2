@@ -3,8 +3,7 @@ package Ex2_2;
 import java.util.concurrent.*;
 
 public class CustomExecutor extends ThreadPoolExecutor {
-    private int[] max = {-1, 0, 0, 0}; /** The priority inside queue */
-    private final int maxp = 10; /** the default priority  */
+    private int[] max = {-1, 0, 0, 0};  /** represent empty priority case */
 
     /**
      * constructor
@@ -77,6 +76,7 @@ public class CustomExecutor extends ThreadPoolExecutor {
      */
     public int getCurrentMax()
     {
+        int empty_priority = 0; // represent empty priority case
         boolean ok = false;
         int max_p = 3;
         for (int i = 3; i >= 1; i--) {
@@ -87,7 +87,8 @@ public class CustomExecutor extends ThreadPoolExecutor {
             }
         }
         if (ok) return max_p;
-        return maxp;
+        /** The priority inside queue */
+        return empty_priority;
 
     }
 
